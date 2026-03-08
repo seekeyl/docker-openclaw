@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  openclaw:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: office-openclaw:latest
+    container_name: office-openclaw
+    ports:
+      - "18789:18789"
+    volumes:
+      - ./config/openclaw.json:/root/.openclaw/openclaw.json
+      - ./workspace:/root/.openclaw/workspace
+    environment:
+      - TZ=Asia/Shanghai
+      - MINIMAX_API_KEY=YOUR_MINIMAX_API_KEY
+      - ALIYUNCS_API_KEY=YOUR_ALIYUNCS_API_KEY
+      - WEBCHAT_TOKEN=WHAT_EVER_YOU_WANT
+    restart: unless-stopped
+    networks:
+      - openclaw-network
+
+networks:
+  openclaw-network:
+    driver: bridge

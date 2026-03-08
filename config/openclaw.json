@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.12",
+    "lastTouchedAt": "2026-02-15T05:10:00.220Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-15T05:10:00.215Z",
+    "lastRunVersion": "2026.2.12",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimaxi.com/v1",
+        "apiKey": "${MINIMAX_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65535
+          }
+        ]
+      },
+      "aliyuncs": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "${ALIYUNCS_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "Qwen3.5 plus",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0.8,
+              "output": 4.8,
+              "cacheRead": 0.08,
+              "cacheWrite": 1
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 64000
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "fallbacks": [
+          "minimax/MiniMax-M2.5",
+          "aliyuncs/qwen3.5-plus"
+        ],
+        "primary": "minimax/MiniMax-M2.5"
+      },
+      "imageModel": {
+        "primary": "minimax/MiniMax-M2.5"
+      },
+      "models": {
+        "minimax/MiniMax-M2.5": {},
+        "aliyuncs/qwen3.5-plus": {}
+      },
+      "workspace": "/home/seekey/.openclaw/workspace",
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "openclaw",
+    "headless": true,
+	"noSandbox": true
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "${WEBCHAT_TOKEN}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        }
+      }
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    },
+	"controlUi": {
+      "allowedOrigins": [
+	    "http://localhost:18789"
+	  ]
+	}
+  }
+}
