@@ -228,4 +228,4 @@ skills/
 
 When creating a new skill:
 1. Create source files in `skills/skill-name/`
-2. Update `TOOLS.md` and `memory.md` with relevant paths
+2. Update `TOOLS.md` and `MEMORY.md` with relevant paths
