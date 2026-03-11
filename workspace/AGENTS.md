@@ -219,11 +219,10 @@ This is the single source of truth for all skills. The structure should be:
 
 ```
 skills/
-├── skill-name/
-│   ├── SKILL.md           # Main documentation
-│   ├── scripts/           # Executable scripts
-│   └── references/        # Test and reference materials
-└── skill-name.skill       # Packaged skill file
+└── skill-name/
+    ├── SKILL.md           # Main documentation
+    ├── scripts/           # Executable scripts
+    └── references/        # Test and reference materials
 ```
 
 When creating a new skill:

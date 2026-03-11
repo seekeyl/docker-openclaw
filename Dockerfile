@@ -6,21 +6,12 @@ RUN npm config set registry https://registry.npmmirror.com/ \
     && sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list.d/debian.sources
 
 # 安装系统依赖（包括 Chrome 所需库）
-RUN apt update \
-    && apt upgrade -y \
-    && apt install -y \
-       python3 python3-pip \
-       vim net-tools jq \
-       wget supervisor \
-       xvfb \
+RUN apt update && apt upgrade -y 
+RUN apt install -y \
+       python3 python3-pip vim net-tools jq wget supervisor xvfb chromium \
        libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
        libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
        libxrandr2 libgbm1 libpango-1.0-0 libcairo2 libasound2
-
-# 安装 Chrome
-# RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# RUN apt install -y ./google-chrome-stable_current_amd64.deb 
-# RUN rm -rf google-chrome-stable_current_amd64.deb
 
 # 安装 OpenClaw
 RUN npm i -g openclaw

@@ -20,6 +20,7 @@ skills/
 │   ├── SKILL.md           # Main documentation
 │   ├── scripts/           # Executable scripts, optional
 │   └── references/        # Test and reference materials, optional
+
 ```
 
 When creating a new skill:
@@ -30,9 +31,6 @@ When creating a new skill:
 ## Skill Package Location
 
 All skill packages are stored in: `/root/.openclaw/workspace/skills/`
-
-- `agent-browser`
-- `self-imporving`
 
 ## Skill Source Files
 
