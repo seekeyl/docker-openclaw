@@ -302,7 +302,6 @@ docker-compose restart
 
 - [OpenClaw 官方文档](https://docs.openclaw.ai)
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
-- [OpenClaw Discord](https://discord.com/invite/clawd)
 - [ClawHub - Skills 市场](https://clawhub.ai)
 
 ## 📄 License
