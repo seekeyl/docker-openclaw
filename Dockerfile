@@ -26,6 +26,9 @@ RUN openclaw plugins install @openclaw/feishu
 # 删除重复文件
 RUN rm -rf /root/.openclaw/extensions/feishu
 
+# 企微插件
+RUN openclaw plugins install @wecom/wecom-openclaw-plugin
+
 # 复制自动审批文件
 RUN mkdir -p /opt/scripts/
 ADD ./scripts/* /opt/scripts/

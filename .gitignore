@@ -1,6 +1,9 @@
 # OpenClaw
 .config/
 state/
+workspace/.openclaw/
+workspace/memory/
+docker-compose_personal.yml
 
 # Node.js
 node_modules/
