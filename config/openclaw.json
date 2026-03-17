@@ -122,7 +122,7 @@
 	"noSandbox": true
   },
   "channels": {
-	"feishu": {
+	  "feishu": {
       "enabled": true,
       "dmPolicy": "pairing",
       "accounts": {
@@ -131,7 +131,13 @@
           "appSecret": "${FEISHU_APP_SECRET}"
         }
       }
-    }
+    },
+	  "wecom": {
+      "enabled": true,
+	    "dmPolicy": "pairing",
+      "botId": "${QYWECHAT_BOT_ID}",
+      "secret": "${QYWECHAT_SECRET}"
+	  }
   },
   "gateway": {
     "port": 18789,
@@ -168,10 +174,14 @@
     "entries": {
       "feishu": {
         "enabled": true
+      },
+      "wecom-openclaw-plugin": {
+        "enabled": true
       }
     },
     "allow": [
-      "feishu"
+      "feishu",
+      "wecom-openclaw-plugin"
     ]
   },
   "tools": {

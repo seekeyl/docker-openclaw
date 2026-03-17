@@ -12,6 +12,11 @@ services:
     volumes:
       - ./config/openclaw.json:/root/.openclaw/openclaw.json
       - ./workspace:/root/.openclaw/workspace
+      - ./agents:/root/.openclaw/agents
+      - ./cron:/root/.openclaw/cron
+      - ./wecom:/root/.openclaw/wecom
+      - ./wecomConfig:/root/.openclaw/wecomConfig
+      - ./feishu:/root/.openclaw/feishu
     environment:
       - TZ=Asia/Shanghai
       - MINIMAX_API_KEY=YOUR_MINIMAX_API_KEY
@@ -21,6 +26,8 @@ services:
       - WEBCHAT_TOKEN=WHAT_EVER_YOU_WANT
       - FEISHU_APP_ID=YOUR_FEISHU_APP_ID
       - FEISHU_APP_SECRET=YOUR_FEISHU_APP_SECRET
+      - QYWECHAT_BOT_ID=YOUR_QYWECHAT_BOT_ID
+      - QYWECHAT_SECRET=YOUR_QYWECHAT_SECRET
     restart: unless-stopped
     networks:
       - openclaw-network

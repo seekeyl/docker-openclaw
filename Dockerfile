@@ -16,7 +16,7 @@ RUN apt install -y \
 # 安装 OpenClaw
 RUN npm i -g openclaw
 # 安装 智能体浏览器
-RUN npm install -g agent-browser && agent-browser install
+RUN npm i -g agent-browser && agent-browser install
 
 # 非交互式初始化配置
 RUN yes "" | openclaw setup
@@ -30,12 +30,13 @@ RUN rm -rf /root/.openclaw/extensions/feishu
 RUN openclaw plugins install @wecom/wecom-openclaw-plugin
 
 # 复制自动审批文件
-RUN mkdir -p /opt/scripts/
-ADD ./scripts/* /opt/scripts/
-RUN mv /opt/scripts/supervisord.conf /etc/supervisor/conf.d/
+# RUN mkdir -p /opt/scripts/
+# ADD ./scripts/* /opt/scripts/
+# RUN mv /opt/scripts/supervisord.conf /etc/supervisor/conf.d/
 
 # 暴露端口（仅 gateway 端口）
 EXPOSE 18789
 
 # 启动命令：gateway 同时运行
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+# CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+CMD ["/bin/bash", "-c", "openclaw gateway --bind lan --port 18789 --allow-unconfigured"]
