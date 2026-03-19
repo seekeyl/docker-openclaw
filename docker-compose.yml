@@ -11,12 +11,13 @@ services:
       - "18789:18789"
     volumes:
       - ./config/openclaw.json:/root/.openclaw/openclaw.json
-      - ./workspace:/root/.openclaw/workspace
-      - ./agents:/root/.openclaw/agents
-      - ./cron:/root/.openclaw/cron
-      - ./wecom:/root/.openclaw/wecom
-      - ./wecomConfig:/root/.openclaw/wecomConfig
-      - ./feishu:/root/.openclaw/feishu
+      - ./prod/workspace:/root/.openclaw/workspace
+      - ./prod/agents:/root/.openclaw/agents
+      - ./prod/canvas:/root/.openclaw/canvas
+      - ./prod/credentials:/root/.openclaw/credentials
+      - ./prod/cron:/root/.openclaw/cron
+      - ./prod/logs:/root/.openclaw/logs
+      - ./prod/memory:/root/.openclaw/memory
     environment:
       - TZ=Asia/Shanghai
       - MINIMAX_API_KEY=YOUR_MINIMAX_API_KEY
